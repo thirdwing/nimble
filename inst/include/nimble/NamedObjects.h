@@ -11,32 +11,32 @@ using namespace std;
 Class for void pointers to arbitrary objects for R access
 */
 class NamedObjects {
-public:
-  map< string, void * > namedObjects;
-  virtual void* getObjectPtr( string &name );
-  virtual ~NamedObjects() {};
+  public:
+    map< string, void * > namedObjects;
+    virtual void* getObjectPtr( string &name );
+    virtual ~NamedObjects() {};
 };
 
 extern "C" {
-  SEXP getModelObjectPtr(SEXP Sextptr, SEXP Sname); /* should rename to getObjectPtr*/
-  SEXP getAvailableNames(SEXP Sextptr);
+    SEXP getModelObjectPtr(SEXP Sextptr, SEXP Sname); /* should rename to getObjectPtr*/
+    SEXP getAvailableNames(SEXP Sextptr);
 }
 
 class NumberedObjects {
-public:
-	vector<void*> numberedObjects;
-	void* getObjectPtr(int index);
-	void setObjectPtr(int index, void* newPtr);
-	void resize(int size);
-	virtual ~NumberedObjects(){};
+  public:
+    vector<void*> numberedObjects;
+    void* getObjectPtr(int index);
+    void setObjectPtr(int index, void* newPtr);
+    void resize(int size);
+    virtual ~NumberedObjects() {};
 };
 
 extern "C" {
-	SEXP getNumberedObject(SEXP Snp, SEXP index);
-	SEXP setNumberedObject(SEXP Snp, SEXP index, SEXP val);
-	SEXP resizeNumberedObjects(SEXP Snp, SEXP size);
-	SEXP getSizeNumberedObjects(SEXP Snp);
-	SEXP newNumberedObjects();
+    SEXP getNumberedObject(SEXP Snp, SEXP index);
+    SEXP setNumberedObject(SEXP Snp, SEXP index, SEXP val);
+    SEXP resizeNumberedObjects(SEXP Snp, SEXP size);
+    SEXP getSizeNumberedObjects(SEXP Snp);
+    SEXP newNumberedObjects();
 }
 
 void numberedObjects_Finalizer(SEXP Snp);
@@ -46,18 +46,18 @@ void numberedObjects_Finalizer(SEXP Snp);
 // but it is for items of class <T> which are built on the spot with
 // no external pointer. Thus, the finalizer must be specialized for class<T>
 template<class T>
-class SpecialNumberedObjects : public NumberedObjects{
-	public:
-	virtual ~SpecialNumberedObjects(){
-		int len = numberedObjects.size();
-		T* ptr;
-		for(int i = 0; i < len; i++){
-			ptr = static_cast<T*>(getObjectPtr(i));
-			if(ptr != 0){
-				delete ptr;	
-				}
-		}
-	}
+class SpecialNumberedObjects : public NumberedObjects {
+  public:
+    virtual ~SpecialNumberedObjects() {
+        int len = numberedObjects.size();
+        T* ptr;
+        for(int i = 0; i < len; i++) {
+            ptr = static_cast<T*>(getObjectPtr(i));
+            if(ptr != 0) {
+                delete ptr;
+            }
+        }
+    }
 };
 
 template<class T>

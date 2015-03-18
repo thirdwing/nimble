@@ -5,27 +5,27 @@
 
 extern "C" {
 // BLAS/LAPACK routines
-  // not needed when #include "R_ext/lapack.h"
-  /*
-  int dgemm_(char*, char*, int*, int*, int*, double*, double*, int*, double*, int*, double*, double*, int*); 
-  int dtrmv_(char*, char*, char*, int*, double*, int*, double*, int*);
-  int dtrsv_(char*, char*, char*, int*, double*, int*, double*, int*);
-  int dtrsm_(char*, char*, char*, char*, int*, int*, double*, double*, int*, double*, int*);
-  int dtrmm_(char*, char*, char*, char*, int*, int*, double*, double*, int*, double*, int*);
-  int dpotrf_(char*, int*, double*, int*, int*);
-  */
+    // not needed when #include "R_ext/lapack.h"
+    /*
+    int dgemm_(char*, char*, int*, int*, int*, double*, double*, int*, double*, int*, double*, double*, int*);
+    int dtrmv_(char*, char*, char*, int*, double*, int*, double*, int*);
+    int dtrsv_(char*, char*, char*, int*, double*, int*, double*, int*);
+    int dtrsm_(char*, char*, char*, char*, int*, int*, double*, double*, int*, double*, int*);
+    int dtrmm_(char*, char*, char*, char*, int*, int*, double*, double*, int*, double*, int*);
+    int dpotrf_(char*, int*, double*, int*, int*);
+    */
 
-  // NIMBLE C wrappers called from R
-  SEXP C_dmnorm_chol(SEXP, SEXP, SEXP, SEXP, SEXP); 
-  SEXP C_rmnorm_chol(SEXP, SEXP, SEXP); 
-  SEXP C_dwish_chol(SEXP, SEXP, SEXP, SEXP, SEXP);
-  SEXP C_rwish_chol(SEXP, SEXP, SEXP);
-  SEXP C_dcat(SEXP, SEXP, SEXP);
-  SEXP C_rcat(SEXP, SEXP);
-  SEXP C_dmulti(SEXP, SEXP, SEXP, SEXP);
-  SEXP C_rmulti(SEXP, SEXP);
-  SEXP C_ddirch(SEXP, SEXP, SEXP);
-  SEXP C_rdirch(SEXP);
+    // NIMBLE C wrappers called from R
+    SEXP C_dmnorm_chol(SEXP, SEXP, SEXP, SEXP, SEXP);
+    SEXP C_rmnorm_chol(SEXP, SEXP, SEXP);
+    SEXP C_dwish_chol(SEXP, SEXP, SEXP, SEXP, SEXP);
+    SEXP C_rwish_chol(SEXP, SEXP, SEXP);
+    SEXP C_dcat(SEXP, SEXP, SEXP);
+    SEXP C_rcat(SEXP, SEXP);
+    SEXP C_dmulti(SEXP, SEXP, SEXP, SEXP);
+    SEXP C_rmulti(SEXP, SEXP);
+    SEXP C_ddirch(SEXP, SEXP, SEXP);
+    SEXP C_rdirch(SEXP);
 
 }
 
@@ -48,8 +48,8 @@ void rwish_chol(double*, double*, double, int, int);
 // SHOULD BE IN nimDists.h
 
 extern "C" {
-  SEXP C_rt_nonstandard(SEXP, SEXP, SEXP, SEXP);
-  SEXP C_dt_nonstandard(SEXP, SEXP, SEXP, SEXP, SEXP);
+    SEXP C_rt_nonstandard(SEXP, SEXP, SEXP, SEXP);
+    SEXP C_dt_nonstandard(SEXP, SEXP, SEXP, SEXP, SEXP);
 }
 
 double dt_nonstandard(double, double, double, double, int);

@@ -13,19 +13,26 @@ using std::string;
 
 
 class Values : public NamedObjects {
-public:
-  /* typedef vector< double > valueType; */
-  /* typedef vector< vector< double > > valueVecType; */
-  /* typedef valueVecType::iterator valueVecIterator; */
+  public:
+    /* typedef vector< double > valueType; */
+    /* typedef vector< vector< double > > valueVecType; */
+    /* typedef valueVecType::iterator valueVecIterator; */
 
- // int SampleSize; // deprecate this
-  int numRows;
-  int getsize(){return(numRows);};
-  virtual void resize(int nrow)=0;
-  
-  string buildName;
-  string getMVBuildName(){ return buildName;}  ;
-  Values() { buildName = "missing"; numRows = 0;};
+// int SampleSize; // deprecate this
+    int numRows;
+    int getsize() {
+        return(numRows);
+    };
+    virtual void resize(int nrow)=0;
+
+    string buildName;
+    string getMVBuildName() {
+        return buildName;
+    }  ;
+    Values() {
+        buildName = "missing";
+        numRows = 0;
+    };
 };
 
 
@@ -52,7 +59,7 @@ public:
 
 /* extern "C" { */
 /*   SEXP newModelValues(SEXP typelabel); */
-  
+
 /* } */
 
 /* extern ValuesFactory valuesFactory; */
@@ -68,6 +75,6 @@ public:
 
 //void valuesFinalizer(SEXP Sv);
 
-    //void allocate(vector< vector <double> > *vv, int sampleSize, int variableSize);
+//void allocate(vector< vector <double> > *vv, int sampleSize, int variableSize);
 
 #endif

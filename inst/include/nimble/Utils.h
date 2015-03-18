@@ -31,7 +31,7 @@ double nimbleRound(double x);
 double pairmax(double x1, double x2);
 double pairmin(double x1, double x2);
 //double phi(double x);
-int nimbleStep(double x); 
+int nimbleStep(double x);
 double cube(double x);
 double inprod(double v1, double v2);
 

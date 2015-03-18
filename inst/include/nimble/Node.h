@@ -6,25 +6,30 @@
 #include <Rinternals.h>
 
 class Node {
-public:
-  //  CalcStates *calcStates;
-  virtual void simulate()=0;
-  virtual double calculate()=0;
-  virtual double getLogProb()=0;
+  public:
+    //  CalcStates *calcStates;
+    virtual void simulate()=0;
+    virtual double calculate()=0;
+    virtual double getLogProb()=0;
 };
 
-class DetermNode : public Node{
-public:
-  virtual void simulate()=0;
-  virtual double calculate() { simulate(); return(0.); } // default behavior
-  virtual double getLogProb() { return(0.); } // default behavior
+class DetermNode : public Node {
+  public:
+    virtual void simulate()=0;
+    virtual double calculate() {
+        simulate();    // default behavior
+        return(0.);
+    }
+    virtual double getLogProb() {
+        return(0.);    // default behavior
+    }
 };
 
 class StochNode : public Node {
-public:
-  virtual void simulate()=0;
-  virtual double calculate()=0;
-  virtual double getLogProb()=0;
+  public:
+    virtual void simulate()=0;
+    virtual double calculate()=0;
+    virtual double getLogProb()=0;
 };
 
 #define DEFINE_DETERMNODE_CLASS(name) \
@@ -52,9 +57,9 @@ virtual void simulate();		\
   };
 
 extern "C" {
-  SEXP callSimulate(SEXP Sextptr);
-  SEXP callCalculate(SEXP Sextptr);
-  SEXP callGetLogProb(SEXP Sextptr);
+    SEXP callSimulate(SEXP Sextptr);
+    SEXP callCalculate(SEXP Sextptr);
+    SEXP callGetLogProb(SEXP Sextptr);
 }
 
 #endif
