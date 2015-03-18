@@ -8,7 +8,8 @@ Maintainer: The NIMBLE Development Team <nimble.stats@gmail.com>
 Description: A package for flexibly applying algorithms to models specified in the BUGS language. 
              Algorithms can be written in the NIMBLE language and made available to any model.
 License: GPL (>= 2)
-Imports: Rcpp (>= 0.11.4), igraph, methods
+Imports: Rcpp (>= 0.11.4),  methods
+Depends: igraph
 Suggests: testthat
 LinkingTo: Rcpp, RcppEigen
 LazyData: false
