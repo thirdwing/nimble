@@ -4,7 +4,7 @@ Title: Flexible BUGS-compatible system for hierarchical statistical modeling and
 Version: 0.3-2
 Date: 2015-03-18
 Author: Qiang Kou, Perry de Valpine, Christopher Paciorek, Daniel Turek, Cliff Anderson-Bergman, Duncan Temple Lang
-Maintainer: The NIMBLE Development Team <nimble.stats@gmail.com>
+Maintainer: Qiang Kou <qkou@umail.iu.edu>
 Description: A package for flexibly applying algorithms to models specified in the BUGS language. 
              Algorithms can be written in the NIMBLE language and made available to any model.
 License: GPL (>= 2)
