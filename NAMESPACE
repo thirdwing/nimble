@@ -1,0 +1,3 @@
+useDynLib(nimble)
+exportPattern("^[[:alpha:]]+")
+importFrom(Rcpp, evalCpp)

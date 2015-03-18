@@ -1,0 +1,14 @@
+# editor backup files
+*~
+\#*\#
+
+# compiled code
+*.o
+*.so
+*.dll
+*.a
+
+src/symbols.rds
+
+# SVN stuff
+.svn
